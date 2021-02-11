@@ -17,7 +17,7 @@ pipeline {
                 script {
                     app = docker.build("gsimsek/train-schedule")
                     app.inside {
-                        sh 'echo $(curl localhost:81)'
+                        sh 'echo $(curl localhost:8080)'
                     }
                 }
             }
