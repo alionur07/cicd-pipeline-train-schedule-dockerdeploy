@@ -1,4 +1,4 @@
-//10th try
+//11th try
 pipeline {
     agent any
     stages {
@@ -51,7 +51,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run --restart always --name train-schedule -p 81:81 -d gsimsek/train-schedule:${env.BUILD_NUMBER}\""
+                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run --restart always --name train-schedule -p 81:8080 -d gsimsek/train-schedule:${env.BUILD_NUMBER}\""
                     }
                 }
             }
